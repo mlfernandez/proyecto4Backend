@@ -21,6 +21,14 @@ class Series {
 
     return res.data;
   }
+
+  async searchByWeek(week) {
+    let res = await axios.get(
+      `https://api.themoviedb.org/3/trending/tv/week?api_key=210d6a5dd3f16419ce349c9f1b200d6d`
+    );
+
+    return res.data;
+  }
 }
 
 let seriesController = new Series();
