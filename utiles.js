@@ -75,5 +75,18 @@ let traductorGenero = [
     id: 37,
     name: "Western",
   },
+  
 ];
-export const traductorGenero = () => {};
+
+
+const checkId = (nombre, array) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].name === nombre) {
+      return array[i].id
+    }
+  }
+}
+
+console.log(checkId("War", traductorGenero));
+
+export function checkId();
