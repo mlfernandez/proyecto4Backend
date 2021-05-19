@@ -1,11 +1,13 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
-const router = require('./router')
+const router = require("./router");
 
 //middewares
 
 app.use(express.json());
 app.use(router);
-app.listen(port,()=> console.log(`Node server up to http://localhost:${port}`))
+app.listen(port, () =>
+  console.log(`Node server up to http://localhost:${port}`)
+);

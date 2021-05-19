@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     });
   }
 });
-http://localhost:3000/movies/id
+// http://localhost:3000/movies/id
 router.get("/:id", async (req, res) => {
   try {
     let id = req.params.id;
