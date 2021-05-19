@@ -26,17 +26,15 @@ class Peliculas {
   }
 
   async searchByGenre(nombre) {
-    let code = checkId(nombre,traductorGenero);
+    let code = checkId(nombre, traductorGenero);
     let res = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&with_genres=${code}`
     );
     console.log(nombre);
     return res.data;
-     
   }
-
 }
-
+// array con los generos por nombre y id
 let traductorGenero = [
   {
     id: 28,
@@ -114,21 +112,16 @@ let traductorGenero = [
     id: 37,
     name: "Western",
   },
-  
 ];
 
-
+// bucle for
 const checkId = (nombre, array) => {
   for (let i = 0; i < array.length; i++) {
     if (array[i].name === nombre) {
-      return array[i].id
+      return array[i].id;
     }
   }
-}
-
-
-
-// export function checkId();
+};
 
 let moviesController = new Peliculas();
 module.exports = moviesController;
