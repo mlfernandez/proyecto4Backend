@@ -86,7 +86,7 @@ const checkId = (nombre, array) => {
     }
   }
 }
-
+// hola mundo!!
 console.log(checkId("War", traductorGenero));
 
 export function checkId();
