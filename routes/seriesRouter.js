@@ -47,4 +47,15 @@ router.get("/timeline/:week", async (req, res) => {
   }
 });
 
+router.get("/screened/:tvId", async (req, res) => {
+  try {
+    let tvId = req.params.tvId; 
+    res.json(await seriesController.searchByScreened(tvId));
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
+});
+
 module.exports = router;
