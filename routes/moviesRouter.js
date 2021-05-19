@@ -29,8 +29,19 @@ router.get('/:id', async(req,res)=>{
 
 router.get("/search/:query", async (req, res) => {
     try {
-      let query = req.params.query; //req de requiere param de parametros si va por el body seria body
+      let query = req.params.query; 
       res.json(await moviesController.searchByTitle(query));
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
+  });
+
+  router.get("/genre/:code", async (req, res) => {
+    try {
+      let code = req.params.code; 
+      res.json(await moviesController.searchByGenre(code));
     } catch (err) {
       return res.status(500).json({
         message: err.message,

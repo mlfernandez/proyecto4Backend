@@ -24,6 +24,13 @@ class Peliculas {
     );
     return res.data;
   }
+
+  async searchByGenre(code) {
+    let res = await axios.get(
+      `https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&with_genres=${code}`
+    );
+    return res.data;
+  }
 }
 
 let moviesController = new Peliculas();
