@@ -1,10 +1,6 @@
 {
   "name": "entrega4",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "",
-=======
->>>>>>> develop
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -24,11 +20,7 @@
   "dependencies": {
     "axios": "0.21.1",
     "express": "4.17.1"
-<<<<<<< HEAD
-  }
-=======
   },
   "devDependencies": {},
   "description": ""
->>>>>>> develop
 }
