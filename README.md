@@ -1,8 +1,8 @@
 <a name="top"></a>
 
-<h1>Backend Rental Movie</h1>
+#Backend Rental Movie
+---
 
-<br>
 
 :speech_balloon: [About](#id1)   
 
@@ -25,12 +25,12 @@ Realization of the back-end for a future movie rental application.
 
 Currently, the search for movies and series is being carried out connecting with the free API of the Movie Database.
 
-This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/). Full Stack Developer Bootcamp. 
+This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/) Full Stack Developer Bootcamp. 
 
 ---
-**Start date:** 19 / May /2021.
+**Start date:** 19 / May /2021
 
-**Deadline:** 23 Mayo de 2021.
+**Deadline:** 23 / May /2021
 
 **Contributors:**
 * [Carlos Quintero Moreno](https://github.com/CarlosRQuinteroM)
@@ -65,20 +65,20 @@ Creating this project we work with these tools and technologies.
 ***
 ## **Instructions**
 
-1. <h3> Starting Node Package Manager </h3>
+1. <h4> Starting Node Package Manager </h4>
    (We must have installed Node.js)
 Using npm init from the command line initializes the project’s package.json file.
 
 ```javascript
 npm init -y
 ```
-2. <h6>Install the Axios dependency</h6>
+2. <h4>Install the Axios dependency</h4>
 Axios is a popular, promise-based HTTP client that sports an easy-to-use API and can be used in both the browser and Node.js.
 
 ```javascript
 npm i axios --save
 ```
-3. <h3> Add {"start":"node index.js"} in the file package.json section "scripts"</h3>
+3. <h4> Add {"start":"node index.js"} in the file package.json section "scripts"</h4>
 ```json
   "scripts": {
    "start": "node index.js", 
@@ -86,14 +86,14 @@ npm i axios --save
   },
 ```
 
-4. <h3>Install framework Express </h3>
+4. <h4>Install framework Express </h4>
 Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the fast development with Node based Web applications.
 
 ```javascript
 npm install express --save
 ```
 
-5. <h3> Delete the ^ simbol in "dependencies" file  package.json </h3>
+5. <h4> Delete the ^ simbol in "dependencies" file  package.json </h4>
 ```json
 "dependencies": {
     "axios": "^0.21.1",
@@ -101,26 +101,26 @@ npm install express --save
   },
 ```
 
-6. <h3> Add index.js on the Work space folder</h3>
+6. <h4> Add index.js on the Work space folder</h4>
 
-7. <h3> Add .gitignore on the Work space folder and inside write</h3>
+7. <h4> Add .gitignore on the Work space folder and inside write</h4>
 ```json
 /node_modules
 ```
-8. <h3>Now we are ready to work on the backend!</h3>
+8. <h4>Now we are ready to work on the backend!</h4>
 >To know more about this See Creating the Backend below.
 
-9. <h3>To conect to the server write on the terminal</h3>
+9. <h4>To conect to the server write on the terminal</h4>
 ```javascript
 npm start
 ```
-10. <h3>Now we can see the Data in Postman.</h3>
+10. <h4>Now we can see the Data in Postman.</h4>
 >To know more about this see Postman below.
 
 <a name="id4"></a>
 ## Creating the Backend
 
-1. <h3>index.js</h3>
+1. <h4>index.js</h4>
 *  We have to call Node Express
 ```javascript
 const express = require('express');
@@ -155,7 +155,7 @@ app.listen(port, () => console.log(`Node server running on http://localhost:${po
 
 
 
-2. <h3>router.js</h3>
+2. <h4>router.js</h4>
 
 * We have to call Node Express.
 ```javascript
@@ -178,7 +178,7 @@ module.exports = router;
 ```
 
 
-3. <h3>utiles.js</h3>
+3. <h4>utiles.js</h4>
 
 In this file we create the functions that we need to export in other folders.
 In this case, the (checkId) function transforms the users' words into gender identifiers through a for / if loop, which allows the identification numbers to be searched in the Database to be translated.
@@ -211,7 +211,7 @@ module.exports = checkId;
 ```
 
 
-4. <h3>controllers</h3>
+4. <h4>controllers</h4>
 
 Controllers contain callback functions which we pass to the router's methods. 
 
@@ -245,7 +245,7 @@ module.exports = moviesController;
 ```
 
 
-5. <h6>routes</h6>
+5. <h4>routes</h4>
 
 A route is a section of Express code that associates an HTTP verb (GET, POST, PUT, DELETE, etc.), a URL path/pattern, and a function that is called to handle that pattern.
 
