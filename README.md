@@ -123,6 +123,23 @@ This is the father file, first we have to call Node Express
 ```javascript
 const express = require('express');
 ```
+save and execute
+```javascript
+const app = express();
+```
+and we declare the port where we are going to raise the server
+```javascript
+const port = 3000; 
+```
+we save the constant router and match it to the require method and tell it that we import it from router.js
+```javascript
+const router = require('./router'); 
+```
+Express provides you with middleware to deal with the (incoming) data (object) in the body of the request.
+
+a. express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code: app.use(express.json());
+
+
 2. <h6>router.js</h6>
 3. <h6>utilites.js</h6>
 4. <h6>controllers</h6>
