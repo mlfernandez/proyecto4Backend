@@ -74,7 +74,7 @@ Axios is a popular, promise-based HTTP client that sports an easy-to-use API and
 ```javascript
 npm i --save axios
 ```
-3. <h6> Add "start..." in the file package.json </h6>
+3. <h6> Add "start":"node index.js" in the file package.json section "scripts"</h6>
 ```json
   "scripts": {
    "start": "node index.js", 
