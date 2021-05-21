@@ -19,7 +19,7 @@
 ---
 
 <a name="id1"></a>
-## About
+## **About**
 
 Realización del backend para una futura aplicacion de alquiler de películas. 
 
@@ -39,7 +39,7 @@ Este proyecto es parte del bootcamp de **Full Stack Developer** de [GeeksHubs Ac
 ---
 
 <a name="id2"></a>
-## Tools
+## **Tools**
 
 Para la realización de este trabajo contamos con las siguientes herramientas y tecnologías.
 
@@ -61,7 +61,7 @@ Para la realización de este trabajo contamos con las siguientes herramientas y 
 
 
 <a name="id3"></a>
-## Instructions
+## **Instructions**
 
 1. <h6> Inicianizando Node Package Manager </h6>
 (Debes tener instalado Node.js)
@@ -147,7 +147,7 @@ a. express.json() is a method inbuilt in express to recognize the incoming Reque
  
 
 <a name="id5"></a>
-## Postman
+## **Postman**
 
 >Postman is a collaboration platform for API development. Postman's features simplify each step of building an API and streamline collaboration so you can create better APIs—faster.
 
@@ -156,7 +156,7 @@ a. express.json() is a method inbuilt in express to recognize the incoming Reque
 
 
 <a name="id6"></a>
-## Thanks
+## **Thanks**
 
 <br>
 <br>

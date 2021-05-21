@@ -29,7 +29,7 @@ class Peliculas {
 
   async searchByGenre(nombre) {
     // checkId(nombre,traductorGenero)
-    let code = checkId(nombre);
+    let code = checkId(nombre.toLowerCase());
     let res = await axios.get(
       `https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&with_genres=${code}`
     );
