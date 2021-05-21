@@ -278,6 +278,8 @@ module.exports = router;
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb02cfc04d105dd4329?action=collection%2Fimport)
 
+Or [click here to the API Documentation](https://documenter.getpostman.com/view/15824691/TzXtHziv)
+
 
 <a name="id6"></a>
 ***
