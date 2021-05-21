@@ -8,7 +8,7 @@
 
 :hammer: [Tools](#id2)
 
-:clipboard: [instructions](#id3)
+:clipboard: [Instructions](#id3)
 
 :eye_speech_bubble: [Creating the Backend](#id4)
 
@@ -21,27 +21,28 @@
 <a name="id1"></a>
 ## **About**
 
-Realización del backend para una futura aplicacion de alquiler de películas. 
+Realization of the back-end for a future movie rental application.
 
-Actualmente se realiza la busqueda de peliculas y series conectando con la API gratuita de **The Movie Database**.
+Currently, the search for movies and series is being carried out connecting with the free API of the Movie Database.
 
-Este proyecto es parte del bootcamp de **Full Stack Developer** de [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/).
+This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/). Full Stack Developer Bootcamp. 
 
 ---
-**Fecha de inicio:** 19 Mayo de 2021.
+**Start date:** 19 / May /2021.
 
-**Fecha máxima de entrega:** 23 Mayo de 2021.
+**Deadline:** 23 Mayo de 2021.
 
-**Realizado por:**
-* [Carlos Quintero](https://github.com/CarlosRQuinteroM)
+**Contributors:**
+* [Carlos Quintero Moreno](https://github.com/CarlosRQuinteroM)
 * [Mariana Fernández Sacristán](https://github.com/mlfernandez)
 
 ---
 
 <a name="id2"></a>
+
 ## **Tools**
 
-Para la realización de este trabajo contamos con las siguientes herramientas y tecnologías.
+Creating this project we work with these tools and technologies.
 
 | <img src="img/logovisual.png" alt="Visual" width="30"/> | Visual Code Estudio |
 
@@ -61,22 +62,23 @@ Para la realización de este trabajo contamos con las siguientes herramientas y 
 
 
 <a name="id3"></a>
+***
 ## **Instructions**
 
-1. <h6> Inicianizando Node Package Manager </h6>
-(Debes tener instalado Node.js)
+1. <h3> Starting Node Package Manager </h3>
+   (We must have installed Node.js)
 Using npm init from the command line initializes the project’s package.json file.
 
 ```javascript
 npm init -y
 ```
-2. <h6>Instalar la dependencia Axios </h6>
+2. <h6>Install the Axios dependency</h6>
 Axios is a popular, promise-based HTTP client that sports an easy-to-use API and can be used in both the browser and Node.js.
 
 ```javascript
-npm i --save axios
+npm i axios --save
 ```
-3. <h6> Add "start":"node index.js" in the file package.json section "scripts"</h6>
+3. <h3> Add {"start":"node index.js"} in the file package.json section "scripts"</h3>
 ```json
   "scripts": {
    "start": "node index.js", 
@@ -84,14 +86,14 @@ npm i --save axios
   },
 ```
 
-4. <h6>Install framework Express </h6>
-Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications.
+4. <h3>Install framework Express </h3>
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the fast development with Node based Web applications.
 
 ```javascript
 npm install express --save
 ```
 
-5. <h6> Delete the ^ simbol in version on the file package.json </h6>
+5. <h3> Delete the ^ simbol in "dependencies" file  package.json </h3>
 ```json
 "dependencies": {
     "axios": "^0.21.1",
@@ -99,87 +101,90 @@ npm install express --save
   },
 ```
 
-6. <h6> Add index.js on the working folder</h6>
+6. <h3> Add index.js on the Work space folder</h3>
 
-7. <h6> Add .gitignore on the working folder and inside write</h6>
+7. <h3> Add .gitignore on the Work space folder and inside write</h3>
 ```json
 /node_modules
 ```
-8. <h6>Now you can start working on the Backend!</h6>
+8. <h3>Now we are ready to work on the backend!</h3>
 >To know more about this See Creating the Backend below.
 
-9. <h6>To conect to the server write on the terminal</h6>
+9. <h3>To conect to the server write on the terminal</h3>
 ```javascript
 npm start
 ```
-10. <h6>Now you can see the data on Postman.</h6>
+10. <h3>Now we can see the Data in Postman.</h3>
 >To know more about this see Postman below.
 
 <a name="id4"></a>
 ## Creating the Backend
 
-1. <h6>index.js</h6>
-*  First we have to call Node Express
+1. <h3>index.js</h3>
+*  We have to call Node Express
 ```javascript
 const express = require('express');
 ```
-* save and execute
+* Save and execute.
 ```javascript
 const app = express();
 ```
-* and we declare the port where we are going to raise the server
+* Also declare the port where we are going to upload the server.
 ```javascript
 const port = 3000; 
 ```
-* we save the constant router and match it to the require method and tell it that we import it from router.js
+* Save the constant router and match it to the require method and tell it that we import it from router.js.
 ```javascript
 const router = require('./router'); 
 ```
 * Express provides you with middleware to deal with the (incoming) data (object) in the body of the request.
-express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code: 
+
+ * Express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code.
+
 ```javascript
 app.use(express.json()); 
 ```
-* mounts middleware for all routes of the app whith:
+* We build middleware for all application paths with.
 ```javascript
 app.use(router);  
 ```
-* we raise and initialise the server
+* Lift and initialize the server.
 ```javascript
 app.listen(port, () => console.log(`Node server running on http://localhost:${port}`));
 ```
 
 
 
-2. <h6>router.js</h6>
+2. <h3>router.js</h3>
 
-* First we have to call Node Express
+* We have to call Node Express.
 ```javascript
 const router = require('express').Router();
 ```
-* We call the files on the folder routes
+* Call the files on the folder routes.
 ```javascript
 const moviesRouter = require('./routes/moviesRouter');
 const seriesRouter = require("./routes/seriesRouter");
 ```
-* This says that when the user puts the path where it should go
+* This says that when the user puts the path where it should go.
 ```javascript
 router.use("/movies", movieRouter);
 router.use("/series", seriesRouter);
 ```
 
-* Finally we export this file
+* Finally export the file routers.
 ```javascript
 module.exports = router;
 ```
 
 
-3. <h6>utiles.js</h6>
+3. <h3>utiles.js</h3>
 
-In this file we found the functions that we need to call elsewhere.
-In this case this is the function to translate the genre of the movies the user wants to search to the id needed for the endpoint of The movie database find it.
-We add a case sensitive so that no matter how it is written it can be found anyway.
-Finally we export this file, so we can use in others files.
+In this file we create the functions that we need to export in other folders.
+In this case, the (checkId) function transforms the users' words into gender identifiers through a for / if loop, which allows the identification numbers to be searched in the Database to be translated.
+
+We added a case-sensitivity so that no matter how it's written, it can be found anyway.
+Finally we export this file, so that we can use it in other files.
 
 ```javascript
  const checkId = (nombre) => {
@@ -206,15 +211,15 @@ module.exports = checkId;
 ```
 
 
-4. <h6>controllers</h6>
+4. <h3>controllers</h3>
 
-Controllers are the callback functions we passed to the router methods. 
+Controllers contain callback functions which we pass to the router's methods. 
 
-We need one for each, Movies and Series.
+We will need one for each, Movies and Series.
 
-First we call Axios, this is a popular, promise-based HTTP client that sports an easy-to-use API and can be used in both the browser and Node.js.
+First  call Axios, this is a popular, promise-based HTTP client that sports an easy-to-use API and can be used in both the browser and Node.js.
 
-And the function we export in utiles.
+And the function  export in utiles.
 
 ```javascript
 const axios = require("axios");
@@ -248,7 +253,7 @@ A route is a section of Express code that associates an HTTP verb (GET, POST, PU
 const router = require("express").Router();
 const moviesController = require("../controllers/moviesController");
 ```
-We have one for each Series and Movies, this is a example of one of this to search Top Rated Movies:
+We have one for each Series and Movies, this is a example of one of this to search Top Rated Movies.
 
 ```javascript
 router.get("/", async (req, res) => {
@@ -265,6 +270,7 @@ module.exports = router;
 ```
 
 <a name="id5"></a>
+***
 ## **Postman**
 
 >Postman is a collaboration platform for API development. Postman's features simplify each step of building an API and streamline collaboration so you can create better APIs—faster.
@@ -274,6 +280,7 @@ module.exports = router;
 
 
 <a name="id6"></a>
+***
 ## **Thanks**
 
 We would like to thank our teacher, David, for his help and dedication. And to our bootcamp partners for every help and suggestion received.
@@ -281,4 +288,4 @@ We would like to thank our teacher, David, for his help and dedication. And to o
 <br>
 <br>
 
-[Subir](#top)
+[UP](#top)
