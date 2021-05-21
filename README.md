@@ -1,8 +1,8 @@
 <a name="top"></a>
 
-<center> <h1>Backend Rental Movie</h1> </center>
+<h1>Backend Rental Movie</h1>
 
----
+<br>
 
 :speech_balloon: [About](#id1)   
 
