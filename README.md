@@ -14,7 +14,7 @@
 
 :mailbox: [Postman](#id5)
 
-:mailbox: [Thanks](#id6)
+:smile: [Thanks](#id6)
 
 ---
 
@@ -119,29 +119,93 @@ npm start
 ## Creating the Backend
 
 1. <h6>index.js</h6>
-This is the father file, first we have to call Node Express
+*  First we have to call Node Express
 ```javascript
 const express = require('express');
 ```
-save and execute
+* save and execute
 ```javascript
 const app = express();
 ```
-and we declare the port where we are going to raise the server
+* and we declare the port where we are going to raise the server
 ```javascript
 const port = 3000; 
 ```
-we save the constant router and match it to the require method and tell it that we import it from router.js
+* we save the constant router and match it to the require method and tell it that we import it from router.js
 ```javascript
 const router = require('./router'); 
 ```
-Express provides you with middleware to deal with the (incoming) data (object) in the body of the request.
+* Express provides you with middleware to deal with the (incoming) data (object) in the body of the request.
+express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code: 
+```javascript
+app.use(express.json()); 
+```
+* mounts middleware for all routes of the app whith:
+```javascript
+app.use(router);  
+```
+* we raise and initialise the server
+```javascript
+app.listen(port, () => console.log(`Node server running on http://localhost:${port}`));
+```
 
-a. express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code: app.use(express.json());
 
 
 2. <h6>router.js</h6>
-3. <h6>utilites.js</h6>
+
+* First we have to call Node Express
+```javascript
+const router = require('express').Router();
+```
+* We call the files on the folder routes
+```javascript
+const moviesRouter = require('./routes/moviesRouter');
+const seriesRouter = require("./routes/seriesRouter");
+```
+* This says that when the user puts the path where it should go
+```javascript
+router.use("/movies", movieRouter);
+router.use("/series", seriesRouter);
+```
+
+* Finally we export this file
+```javascript
+module.exports = router;
+```
+
+
+3. <h6>utiles.js</h6>
+
+In this file we found the functions that we need to call elsewhere.
+In this case this is the function to translate the genre of the movies the user wants to search to the id needed for the endpoint of The movie database find it.
+We add a case sensitive so that no matter how it is written it can be found anyway.
+Finally we export this file, so we can use in others files.
+
+```javascript
+ const checkId = (nombre) => {
+  let traductorGenero = [
+    {
+      id: 28,
+      name: "action",
+    ...
+    {
+      id: 37,
+      name: "western",
+    },
+    
+  ];
+  
+  for (let i = 0; i < traductorGenero.length; i++) {
+    if (traductorGenero[i].name === nombre) {
+      return traductorGenero[i].id
+    }
+  }
+};
+ 
+module.exports = checkId;
+```
+
+
 4. <h6>controllers</h6>
 5. <h6>routes</h6>
  
