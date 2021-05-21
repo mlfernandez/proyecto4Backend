@@ -207,8 +207,62 @@ module.exports = checkId;
 
 
 4. <h6>controllers</h6>
+
+Controllers are the callback functions we passed to the router methods. 
+
+We need one for each, Movies and Series.
+
+First we call Axios, this is a popular, promise-based HTTP client that sports an easy-to-use API and can be used in both the browser and Node.js.
+
+And the function we export in utiles.
+
+```javascript
+const axios = require("axios");
+const checkId = require("../utiles");
+```
+Then we create the callbacks funtions with the endopoint to the The Movie Database.
+This is an example in class Peliculas, a function to search the Top Rated Movies.
+
+```javascript
+
+class Peliculas {
+  async findTopRated() {
+    let res = await axios.get(
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US&page=1"
+    );
+
+    return res.data;
+  }
+
+let moviesController = new Peliculas();
+module.exports = moviesController;
+
+```
+
+
 5. <h6>routes</h6>
- 
+
+A route is a section of Express code that associates an HTTP verb (GET, POST, PUT, DELETE, etc.), a URL path/pattern, and a function that is called to handle that pattern.
+
+```javascript
+const router = require("express").Router();
+const moviesController = require("../controllers/moviesController");
+```
+We have one for each Series and Movies, this is a example of one of this to search Top Rated Movies:
+
+```javascript
+router.get("/", async (req, res) => {
+  try {
+    res.json(await moviesController.findTopRated());
+  } catch (err) {
+    return res.status(500).json({
+      mensaje: err.mensaje,
+    });
+  }
+});
+
+module.exports = router;
+```
 
 <a name="id5"></a>
 ## **Postman**
@@ -221,6 +275,8 @@ module.exports = checkId;
 
 <a name="id6"></a>
 ## **Thanks**
+
+We would like to thank our teacher, David, for his help and dedication. And to our bootcamp partners for every help and suggestion received.
 
 <br>
 <br>
