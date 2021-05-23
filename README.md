@@ -21,16 +21,16 @@
 <a name="id1"></a>
 ## **About**
 
-Realization of the back-end for a future movie rental application.
+This is the back-end for a future movie rental application.
 
-Currently, the search for movies and series is being carried out connecting with the free API of the Movie Database.
+Currently, the search for movies and series is being carried out by connecting to the free API the Movie Database.
 
 This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/) Full Stack Developer Bootcamp. 
 
 ---
 **Start date:** 19 / May /2021
 
-**Deadline:** 23 / May /2021
+**Deadline:** 23 May de 2021.
 
 **Contributors:**
 * [Carlos Quintero Moreno](https://github.com/CarlosRQuinteroM)
@@ -42,9 +42,9 @@ This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacadem
 
 ## **Tools**
 
-Creating this project we work with these tools and technologies.
+To create this project we worked with these tools and technologies:
 
-| <img src="img/logovisual.png" alt="Visual" width="30"/> | Visual Code Estudio |
+| <img src="img/logovisual.png" alt="Visual" width="30"/> | Visual Studio Code |
 
 | <img src="img/javascript2.png" alt="JavaScript" width="30"/> | JavaScript | 
 
@@ -139,7 +139,7 @@ const router = require('./router');
 ```
 * Express provides you with middleware to deal with the (incoming) data (object) in the body of the request.
 
- * Express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code.
+ * Express.json() is a method built into Express to recognize the incoming Request Object as a JSON Object. This method is called as a middleware in your application using the code.
 
 ```javascript
 app.use(express.json()); 
@@ -181,7 +181,7 @@ module.exports = router;
 3. <h3>utiles.js</h3>
 
 In this file we create the functions that we need to export in other folders.
-In this case, the (checkId) function transforms the users' words into gender identifiers through a for / if loop, which allows the identification numbers to be searched in the Database to be translated.
+In this case, the (checkId) function transforms the users' words into genre identifiers through a for / if loop, which allows the identification numbers to be searched in the Database to be translated.
 
 We added a case-sensitivity so that no matter how it's written, it can be found anyway.
 Finally we export this file, so that we can use it in other files.
@@ -285,7 +285,7 @@ Or [click here to the API Documentation](https://documenter.getpostman.com/view/
 ***
 ## **Thanks**
 
-We would like to thank our teacher, David, for his help and dedication. And to our bootcamp partners for every help and suggestion received.
+We would like to thank our teacher, David, for his help and dedication. And to our bootcamp partners for all the help and every suggestion received.
 
 <br>
 <br>
