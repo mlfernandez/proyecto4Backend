@@ -30,7 +30,7 @@ This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacadem
 ---
 **Start date:** 19 / May /2021.
 
-**Deadline:** 23 Mayo de 2021.
+**Deadline:** 23 May de 2021.
 
 **Contributors:**
 * [Carlos Quintero Moreno](https://github.com/CarlosRQuinteroM)
