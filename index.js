@@ -4,7 +4,7 @@ const port = 3000;
 
 const router = require("./router");
 
-//middewares
+//middelwares
 
 app.use(express.json());
 app.use(router);
