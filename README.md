@@ -2,7 +2,7 @@
 
 <h1>Backend Rental Movie</h1>
 
-<br>
+
 
 :speech_balloon: [About](#id1)   
 
@@ -25,10 +25,10 @@ This is the back-end for a future movie rental application.
 
 Currently, the search for movies and series is being carried out by connecting to the free API the Movie Database.
 
-This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/). Full Stack Developer Bootcamp. 
+This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/) Full Stack Developer Bootcamp. 
 
 ---
-**Start date:** 19 / May /2021.
+**Start date:** 19 / May /2021
 
 **Deadline:** 23 May de 2021.
 
@@ -72,7 +72,7 @@ Using npm init from the command line initializes the project’s package.json fi
 ```javascript
 npm init -y
 ```
-2. <h6>Install the Axios dependency</h6>
+2. <h3>Install the Axios dependency</h3>
 Axios is a popular, promise-based HTTP client that sports an easy-to-use API and can be used in both the browser and Node.js.
 
 ```javascript
@@ -245,7 +245,7 @@ module.exports = moviesController;
 ```
 
 
-5. <h6>routes</h6>
+5. <h3>routes</h3>
 
 A route is a section of Express code that associates an HTTP verb (GET, POST, PUT, DELETE, etc.), a URL path/pattern, and a function that is called to handle that pattern.
 
@@ -277,6 +277,8 @@ module.exports = router;
 
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb02cfc04d105dd4329?action=collection%2Fimport)
+
+Or [click here to the API Documentation](https://documenter.getpostman.com/view/15824691/TzXtHziv)
 
 
 <a name="id6"></a>
