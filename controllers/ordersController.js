@@ -6,7 +6,7 @@ class Pedido {
   async allOrders() {
     return Order.findAll();
   }
-  async OrderId() {
+  async orderId(id) {
     return Order.findByPk(id);
   }
   async newOrder(body) {

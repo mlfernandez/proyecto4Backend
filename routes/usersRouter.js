@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/",authenticate, async (req, res) => { //authenticate
+router.put("/", authenticate, async (req, res) => { //authenticate
   try {
     const cuerpoDeDatos = req.body;
     res.json(await usersController.modifyUser(cuerpoDeDatos));
@@ -60,7 +60,7 @@ router.put("/",authenticate, async (req, res) => { //authenticate
   }
 });
 
-router.delete("/:id", async (req, res) => { //authenticate
+router.delete("/:id", authenticate, async (req, res) => { //authenticate
   try {
     const id = req.params.id;
     res.json(await usersController.deleteUser(id));
