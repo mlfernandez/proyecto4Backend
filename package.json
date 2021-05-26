@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/mlfernandez/proyecto4Callbacks#readme",
   "dependencies": {
+    "@types/jsonwebtoken": "8.5.1",
     "axios": "0.21.1",
+    "bcryptjs": "2.4.3",
     "express": "4.17.1",
-    "mysql2": "^2.2.5",
+    "mysql2": "2.2.5",
     "sequelize": "6.6.2",
     "sequelize-cli": "6.2.0"
   },
