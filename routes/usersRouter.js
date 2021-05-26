@@ -60,7 +60,7 @@ router.put("/", async (req, res) => { //authenticate
   }
 });
 
-router.delete("/:id", authenticate, async (req, res) => {
+router.delete("/:id", async (req, res) => { //authenticate
   try {
     const id = req.params.id;
     res.json(await usersController.deleteUser(id));
