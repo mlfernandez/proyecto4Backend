@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const authenticate = require("../../../sequelize/dia2/middleware/authenticate");
+const authenticate = require("../middleware/authenticate");
 const usersController = require("../controllers/usersController");
 
 //CRUD
