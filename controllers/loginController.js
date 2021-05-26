@@ -6,7 +6,7 @@ const secret = "Esto es lo mas dificil del bootcamp";
 class LoginController {
     async validate(emailCheck,passwordCheck){
 
-        let user = await userController.emailUser(passwordCheck);
+        let user = await userController.findByEmail(emailCheck);
 
         let password = user.password;
 
