@@ -16,7 +16,8 @@ router.get("/", async (req, res) => {
 
 router.get("/email/:email", async (req, res) => {
   try {
-    res.json(await usersController.findByEmail());
+    let email = req.params.email;
+    res.json(await usersController.findByEmail(email));
   } catch (err) {
     return res.status(500).json({
       message: err.message,
