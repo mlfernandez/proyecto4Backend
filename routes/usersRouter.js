@@ -25,7 +25,7 @@ router.get("/email/:email", async (req, res) => {
   }
 });
 
-router.get("/:id", authenticate, async (req, res) => {
+router.get("/id/:id", async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/", authenticate, async (req, res) => {
+router.put("/", async (req, res) => { //authenticate
   try {
     const cuerpoDeDatos = req.body;
     res.json(await usersController.modifyUser(cuerpoDeDatos));

@@ -11,7 +11,7 @@ class Person {
       where: { email },
     });
   }
-  async findByUserId() {
+  async findByUserId(id) {
     return User.findByPk(id);
   }
   async newUser(body) {
@@ -29,6 +29,7 @@ class Person {
         phone: cuerpoDeDatos.phone,
         city: cuerpoDeDatos.city,
         country: cuerpoDeDatos.country,
+        birthday: cuerpoDeDatos.birthday
       },
       //donde
       { where: { id: cuerpoDeDatos.id } }
