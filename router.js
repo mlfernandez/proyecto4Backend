@@ -10,7 +10,7 @@ router.use("/movies", movieRouter);
 router.use("/series", seriesRouter);
 router.use('/users', usersRouter);
 router.use('/orders', orderRouter);
-router.use('/orders', loginRouter);
+router.use('/login', loginRouter);
 
 
 module.exports = router;

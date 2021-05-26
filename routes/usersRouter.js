@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/", async (req, res) => { //authenticate
+router.put("/",authenticate, async (req, res) => { //authenticate
   try {
     const cuerpoDeDatos = req.body;
     res.json(await usersController.modifyUser(cuerpoDeDatos));
