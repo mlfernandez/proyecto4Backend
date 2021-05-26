@@ -1,5 +1,6 @@
 const { User } = require("../models");
 const router = require("../routes/usersRouter");
+const bcryptjs = require('bcryptjs');
 
 class Person {
   async findAllUsers() {

@@ -28,7 +28,7 @@ router.get("/:id", authenticate, async (req, res) => {
   try {
     const id = req.params.id;
 
-    res.json(await pasajeroController.findByUserId(id));
+    res.json(await usersController.findByUserId(id));
   } catch (err) {
     return res.status(500).json({
       message: err.message,
@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
   try {
     const body = req.body;
 
-    res.json(await pasajeroController.newUser(body));
+    res.json(await usersController.newUser(body));
   } catch (err) {
     return res.status(500).json({
       message: err.message,
@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
 router.put("/", authenticate, async (req, res) => {
   try {
     const cuerpoDeDatos = req.body;
-    res.json(await pasajeroController.modifyUser(cuerpoDeDatos));
+    res.json(await usersController.modifyUser(cuerpoDeDatos));
   } catch (err) {
     return res.status(500).json({
       message: err.message,
@@ -62,7 +62,7 @@ router.put("/", authenticate, async (req, res) => {
 router.delete("/:id", authenticate, async (req, res) => {
   try {
     const id = req.params.id;
-    res.json(await pasajeroController.deleteUser(id));
+    res.json(await usersController.deleteUser(id));
   } catch (err) {
     return res.status(500).json({
       message: err.message,
