@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const secret = "Esto es lo mas dificil del bootcamp";
 
+
 class LoginController {
     async validate(emailCheck,passwordCheck){
 
@@ -20,6 +21,7 @@ class LoginController {
         let payload = {
             userId : user.id,
             createdAt: new Date,
+            isAdmin: user.isAdmin
         };
 
         return jwt.sign(payload,secret);

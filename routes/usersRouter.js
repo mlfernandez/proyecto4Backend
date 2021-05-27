@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const authenticate = require("../middleware/authenticate");
 const usersController = require("../controllers/usersController");
+const admin = require("../middleware/admin");
 
 //CRUD
 
-router.get("/", async (req, res) => {
+router.get("/", admin, async (req, res) => {
   try {
     res.json(await usersController.findAllUsers());
   } catch (err) {
@@ -49,7 +50,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/",authenticate, async (req, res) => { //authenticate
+router.put("/",authenticate, async (req, res) => { 
   try {
     const cuerpoDeDatos = req.body;
     res.json(await usersController.modifyUser(cuerpoDeDatos));
@@ -60,7 +61,7 @@ router.put("/",authenticate, async (req, res) => { //authenticate
   }
 });
 
-router.delete("/:id", authenticate, async (req, res) => { //authenticate
+router.delete("/:id", admin, async (req, res) => { 
   try {
     const id = req.params.id;
     res.json(await usersController.deleteUser(id));
