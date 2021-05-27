@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const orderController = require('../controllers/ordersController');
+const authenticate = require('../middleware/authenticate');
 
 //API CRUD PASAJERO
 
-router.get('/', async (req, res) => {
+router.get('/', authenticate, async (req, res) => {
     try{
         res.json(await orderController.allOrders());
     }catch (err) {
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
         });
     }
 })
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticate, async (req, res) => {
     try{
         const id = req.params.id;
         res.json(await orderController.orderId(id));
@@ -22,7 +23,7 @@ router.get('/:id', async (req, res) => {
         });
     }
 })
-router.post('/', async (req, res) => {
+router.post('/', authenticate, async (req, res) => {
     try{
         const body = req.body;
         res.json(await orderController.newOrder(body));
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
         });
     }
 })
-router.put('/', async (req, res) => {
+router.put('/', authenticate, async (req, res) => {
     try {
         const cuerpoDeDatos = req.body;
         res.json(await orderController.modifyOrder(cuerpoDeDatos));
@@ -42,7 +43,7 @@ router.put('/', async (req, res) => {
         });
     }
 });
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticate, async (req, res) => {
     try {
         const id = req.params.id;
         res.json(await orderController.deleteOrder(id));
