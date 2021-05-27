@@ -8,6 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      // orderId:{
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'Orders',
+      //     key: 'id',
+      //   },
+      //   onUpdate: 'CASCADE',
+      //   onDelete: 'CASCADE',
+      // },
       name: {
         type: Sequelize.STRING
       },
