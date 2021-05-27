@@ -3,9 +3,10 @@ const db = require("./db")
 const app = express();
 const port = 3000;
 const router = require("./router");
+const cors = require('cors');
 
 //middelwares
-
+app.use(cors());
 app.use(express.json());
 app.use(router);
 db
