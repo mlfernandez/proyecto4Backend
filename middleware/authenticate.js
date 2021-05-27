@@ -13,6 +13,7 @@ const authenticate = (req, res, next) => {
 
         let auth = jwt.verify(token, secret);
 
+
         if(auth.userId != req.body.id) {
             throw new Error ( "No tienes permiso para realizar esta accion");    
         }
