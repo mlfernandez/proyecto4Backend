@@ -62,7 +62,7 @@ To create this project we worked with these tools and technologies:
 
 | <img src="img/postman.png" alt="GitHub" width="30"/> | Postman |
 
-<img src="img/trelloLogo.png" alt="trello" width="30"/><details><summary>Click to expand</summary><img src="img/trello.png" alt="trello" width="1000"></details>
+<img src="img/trelloLogo.png" alt="trello" width="30"/><details><summary>Click to expand trello image</summary><img src="img/trello.png" alt="trello" width="1000"></details>
 
 
 
