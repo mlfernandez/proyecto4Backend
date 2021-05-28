@@ -30,9 +30,13 @@ Currently, the search for movies and series is being carried out by connecting t
 This project is part of the [GeeksHubs Academy](https://bootcamp.geekshubsacademy.com/) Full Stack Developer Bootcamp. 
 
 ---
+**Phase I**
 **Start date:** 19 / May /2021
+**Deadline:** 23 / May / 2021
 
-**Deadline:** 23 May de 2021.
+**Phase II**
+**Start date:** 24 / May /2021
+**Deadline:** 30 / May / 2021
 
 **Contributors:**
 * [Carlos Quintero Moreno](https://github.com/CarlosRQuinteroM)
@@ -62,7 +66,7 @@ To create this project we worked with these tools and technologies:
 
 | <img src="img/postman.png" alt="GitHub" width="30"/> | Postman |
 
-|<img src="img/trelloLogo.png" alt="trello" width="30"/>|<details><summary>Click to expand trello image</summary><img src="img/trello.png" alt="trello" width="1000"></details>
+|<img src="img/trelloLogo.png" alt="trello" width="30"/>| Trello | <details><summary>Click to expand Trello image</summary><img src="img/trello.png" alt="trello" width="1000"></details>
 
 
 
