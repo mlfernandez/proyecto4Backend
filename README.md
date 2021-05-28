@@ -398,12 +398,60 @@ router.delete('/:id', admin, async (req, res) => {
 ```
 </details>
 
-  8. ### install the encryption dependency and add them to the login functions.
+  8. ### Install the encryption dependency and add them to the login functions.
 
-   * First we install the bcryptjs Dependencies.
+   * First we install the bcrypt dependencies.
+
+   The **bcrypt** hashing function allows us to build a password security platform that scales with computation power and always hashes every password with a salt.
+
   ```javascripts
-  npm i bcryptjs --save
+  npm i bcrypt --save
   ```
+  * And the jsonwebtoken
+
+  A **JSON web token**, or JWT (“jot”) for short, is a standardized, optionally validated and/or encrypted container format that is used to securely transfer information between two parties
+
+  ```javascripts
+  npm install jsonwebtoken
+  ```
+For explample in the login function we use both, bcrypt and jsonwebtoken
+
+```javascripts
+const userController = require('./usersController');
+const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const secret = "Esto es lo mas dificil del bootcamp";
+
+
+class LoginController {
+    async validate(emailCheck,passwordCheck){
+
+        let user = await userController.findByEmail(emailCheck);
+
+        let password = user.password;
+
+        let verificar = await bcryptjs.compare(passwordCheck,password);
+
+        if(!verificar){
+            return new Error("El password o el email no coinciden");
+            
+        }
+
+        let payload = {
+            userId : user.id,
+            createdAt: new Date,
+            isAdmin: user.isAdmin
+        };
+
+        return jwt.sign(payload,secret);
+
+    }
+}
+
+let loginController = new LoginController();
+module.exports = loginController;
+```
+
 
 
 </details>
@@ -414,10 +462,35 @@ router.delete('/:id', admin, async (req, res) => {
 
 >Postman is a collaboration platform for API development. Postman's features simplify each step of building an API and streamline collaboration so you can create better APIs—faster.
 
+**Example of endpoints on Postman**
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb02cfc04d105dd4329?action=collection%2Fimport)
+![Captura](img/imgPostmanAllOrders.JPG)
 
-Or [click here to the API Documentation](https://documenter.getpostman.com/view/15824691/TzXtHziv)
+![Captura](img/imgPostmanAllOrdersByUser.JPG)
+
+![Captura](img/imgPostmanDeleteOrder.JPG)
+
+![Captura](img/imgPostmanDeleteUser.JPG)
+
+![Captura](img/imgPostmanFindAllUsers.JPG)
+
+![Captura](img/imgPostmanFindByEmail.JPG)
+
+![Captura](img/imgPostmanLogin.JPG)
+
+![Captura](img/imgPostmanModifyOrder.JPG)
+
+![Captura](img/imgPostmanModifyUser.JPG)
+
+![Captura](img/imgPostmanNewOrder.JPG)
+
+![Captura](img/imgPostmanNewUser.JPG)
+
+![Captura](img/imgPostmanOrderById.JPG)
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/042f2c63c893845e50f1?action=collection%2Fimport)
+
+Or [click here to the API Documentation](https://documenter.getpostman.com/view/15824691/TzXzCGpm)
 
 
 <a name="id7"></a>
