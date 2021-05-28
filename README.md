@@ -10,11 +10,13 @@
 
 :clipboard: [Instructions](#id3)
 
-:eye_speech_bubble: [Creating the Backend](#id4)
+:eye_speech_bubble: [Phase I - Creating the Backend](#id4)
 
-:mailbox: [Postman](#id5)
+:eye_speech_bubble: [Phase II - Creating the Backend](#id5)
 
-:smile: [Thanks](#id6)
+:mailbox: [Postman](#id6)
+
+:smile: [Thanks](#id7)
 
 ---
 
@@ -64,6 +66,10 @@ To create this project we worked with these tools and technologies:
 <a name="id3"></a>
 ***
 ## **Instructions**
+<details>
+
+<summary>Click to expand</summary>
+
 
 1. <h3> Starting Node Package Manager </h3>
    (We must have installed Node.js)
@@ -117,8 +123,12 @@ npm start
 10. <h3>Now we can see the Data in Postman.</h3>
 >To know more about this see Postman below.
 
+</details>
+
 <a name="id4"></a>
-## Creating the Backend
+## Phase I Creating the Backend
+<details>
+<summary>Click to expand</summary>
 
 1. <h3>index.js</h3>
 *  We have to call Node Express
@@ -268,8 +278,94 @@ router.get("/", async (req, res) => {
 
 module.exports = router;
 ```
-
+</details>
 <a name="id5"></a>
+
+
+## Phase II - Creating the Backend
+
+<details>
+<summary>Click to expand</summary>
+
+1. #### Installing dependecies
+```javascript
+npm install sequelize --save
+npm install sequelize-cli --save
+npm install mysql2 --save
+```
+
+2. #### Sequelize Init
+```javascript
+sequelize init
+```
+**Sequelize init:** It will create the necessary folder and files. Sequencing model: generate: will create the model and the respective migration. ... Sequelize db: Migrate: Undo: All: Will revert all migrations executed. Sequence Seed: Generate - Will create the fake data seeder.
+
+3. #### Create a database in Workbrench 
+First you have to install sql with workbrench.
+
+MySQL Workbench is a unified visual tool for database architects, developers, and DBAs. MySQL Workbench provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more.
+
+4. #### Modify config.json
+Change password and database information
+```javascript
+{
+  "development": {
+    "username": "root",
+    "password": "db_password",
+    "database": "db_name",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+
+```  
+
+5. #### Create db.js to connect the db, and modify index.js
+
+<details>
+<summary>Expand the see the code</summary>
+
+```javascript
+const config = require('./config/config.json');
+const {Sequelize, DataTypes} = require('sequelize');
+
+const sequelize = new Sequelize(
+    process.env.MYSQL_DATABASE || config.development.database, 
+    process.env.MYSQL_USER || config.development.username, 
+    process.env.MYSQL_PASSWORD || config.development.password,
+    {
+        host: process.env.MYSQL_HOST || config.development.host,
+        port: process.env.MYSQL_PORT || config.development.port || '3306',
+        dialect: 'mysql',
+        operatorAliases: false,
+        pool: {
+            max: 5,
+            min: 0,
+            acquire: 30000,
+            idle: 10000
+        },
+    }
+);
+
+module.exports = sequelize.authenticate()
+.then((db)=>{
+    console.log('MYSQL connected'); 
+    return db;
+});
+```
+</details>
+
+6. ### Generate Models with sequelize
+We generate two models, User and Order. We have to write the attributes of each one and the migration associations. Then we could check the relation on workbrench like this.
+
+**** foto relacion ****
+
+7. ### Creating new endpoints using the db and postman
+
+
+
+</details>
+
+<a name="id6"></a>
 ***
 ## **Postman**
 
@@ -281,7 +377,7 @@ module.exports = router;
 Or [click here to the API Documentation](https://documenter.getpostman.com/view/15824691/TzXtHziv)
 
 
-<a name="id6"></a>
+<a name="id7"></a>
 ***
 ## **Thanks**
 
