@@ -25,9 +25,9 @@ router.get('/:id', authenticate, async (req, res) => {
     }
 })
 
-router.get('/orderuserid/:idUser', authenticate, async (req, res) => {
+router.post('/orderuserid', authenticate, async (req, res) => {
     try{
-        const idUser = req.params.idUser;
+        const idUser = req.body.idUser;
         res.json(await orderController.userOrder(idUser));
     }catch (err) {
         return res.status(500).json({

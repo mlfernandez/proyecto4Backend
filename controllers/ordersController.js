@@ -10,8 +10,9 @@ class Pedido {
     return Order.findByPk(id);
   }
   async userOrder(idUser) {
-    console.log(idUser);
-    return Order.findByPk(idUser);
+    return Order.findAll({
+      where: {idUser: idUser},
+    });
   }
   async newOrder(body) {
     return Order.create(body);

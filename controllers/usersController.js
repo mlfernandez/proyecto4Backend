@@ -11,10 +11,8 @@ class Person {
       where: { email },
     });
   }
-  async findByUserId(idUser) {
-    return User.findAll({
-      where: {idUser},
-    });
+    async findByUserId(id) {
+      return User.findByPk(id);
 
   }
   async newUser(body) {
