@@ -62,7 +62,7 @@ To create this project we worked with these tools and technologies:
 
 | <img src="img/postman.png" alt="GitHub" width="30"/> | Postman |
 
-<img src="img/trelloLogo.png" alt="trello" width="30"/><details><summary>Click to expand trello image</summary><img src="img/trello.png" alt="trello" width="1000"></details>
+|<img src="img/trelloLogo.png" alt="trello" width="30"/>|<details><summary>Click to expand trello image</summary><img src="img/trello.png" alt="trello" width="1000"></details>
 
 
 
@@ -363,6 +363,40 @@ We generate two models, User and Order. We have to write the attributes of each 
 <img src="img/DB.png" alt="Visual" width="1000"/>
 
 7. ### Creating new endpoints using the db and postman
+
+>Creating new endpoints so that users can register in our database and be able to login with their email and password.
+<details>
+<summary>Click to see the endpoint samples. </summary>
+
+```javascript
+// Modify orders
+router.put('/', authenticate, async (req, res) => {
+    try {
+        const cuerpoDeDatos = req.body;
+        res.json(await orderController.modifyOrder(cuerpoDeDatos));
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
+// Delete orders and users
+router.delete('/:id', admin, async (req, res) => {
+    try {
+        const id = req.params.id;
+        res.json(await orderController.deleteOrder(id));
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
+```
+
+</details>
+
+
+
 
 
 
