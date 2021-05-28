@@ -357,7 +357,7 @@ module.exports = sequelize.authenticate()
 6. ### Generate Models with sequelize
 We generate two models, User and Order. We have to write the attributes of each one and the migration associations. Then we could check the relation on workbrench like this.
 
-**** foto relacion ****
+<img src="img/DB.png" alt="Visual" width="1000"/>
 
 7. ### Creating new endpoints using the db and postman
 
