@@ -380,7 +380,7 @@ router.put('/', authenticate, async (req, res) => {
         });
     }
 });
-// Delete orders and users
+// Delete orders 
 router.delete('/:id', admin, async (req, res) => {
     try {
         const id = req.params.id;
@@ -392,12 +392,14 @@ router.delete('/:id', admin, async (req, res) => {
     }
 });
 ```
-
 </details>
 
+  8. ### install the encryption dependency and add them to the login functions.
 
-
-
+   * First we install the bcryptjs Dependencies.
+  ```javascripts
+  npm i bcryptjs --save
+  ```
 
 
 </details>
