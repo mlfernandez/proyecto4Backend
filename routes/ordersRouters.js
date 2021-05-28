@@ -5,6 +5,7 @@ const admin = require('../middleware/admin')
 
 //API CRUD ORDES
 
+// See all orders
 router.get('/', admin, async (req, res) => {
     try{
         res.json(await orderController.allOrders());
@@ -14,6 +15,7 @@ router.get('/', admin, async (req, res) => {
         });
     }
 })
+// View orders by ID
 router.get('/:id', authenticate, async (req, res) => {
     try{
         const id = req.params.id;
@@ -24,7 +26,7 @@ router.get('/:id', authenticate, async (req, res) => {
         });
     }
 })
-
+// View orders the same user
 router.post('/orderuserid', authenticate, async (req, res) => {
     try{
         const idUser = req.body.idUser;
@@ -35,7 +37,7 @@ router.post('/orderuserid', authenticate, async (req, res) => {
         });
     }
 })
-
+// Create orders
 router.post('/', authenticate, async (req, res) => {
     try{
         const body = req.body;
@@ -46,6 +48,7 @@ router.post('/', authenticate, async (req, res) => {
         });
     }
 })
+// Modify orders
 router.put('/', authenticate, async (req, res) => {
     try {
         const cuerpoDeDatos = req.body;
@@ -56,6 +59,7 @@ router.put('/', authenticate, async (req, res) => {
         });
     }
 });
+// Delete orders and users
 router.delete('/:id', admin, async (req, res) => {
     try {
         const id = req.params.id;
