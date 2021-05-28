@@ -11,8 +11,11 @@ class Person {
       where: { email },
     });
   }
-  async findByUserId(id) {
-    return User.findByPk(id);
+  async findByUserId(idUser) {
+    return User.findAll({
+      where: {idUser},
+    });
+
   }
   async newUser(body) {
     let password = body.password;

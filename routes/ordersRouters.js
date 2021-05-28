@@ -24,6 +24,18 @@ router.get('/:id', authenticate, async (req, res) => {
         });
     }
 })
+
+router.get('/orderuserid/:idUser', authenticate, async (req, res) => {
+    try{
+        const idUser = req.params.idUser;
+        res.json(await orderController.userOrder(idUser));
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+})
+
 router.post('/', authenticate, async (req, res) => {
     try{
         const body = req.body;

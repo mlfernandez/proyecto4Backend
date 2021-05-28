@@ -9,6 +9,10 @@ class Pedido {
   async orderId(id) {
     return Order.findByPk(id);
   }
+  async userOrder(idUser) {
+    console.log(idUser);
+    return Order.findByPk(idUser);
+  }
   async newOrder(body) {
     return Order.create(body);
   }
