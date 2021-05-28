@@ -4,7 +4,7 @@ const usersController = require("../controllers/usersController");
 const admin = require("../middleware/admin");
 
 //CRUD
-
+// Find all users
 router.get("/", admin, async (req, res) => {
   try {
     res.json(await usersController.findAllUsers());
@@ -14,7 +14,7 @@ router.get("/", admin, async (req, res) => {
     });
   }
 });
-
+// Find users by email
 router.get("/email/:email", async (req, res) => {
   try {
     let email = req.params.email;
@@ -25,7 +25,7 @@ router.get("/email/:email", async (req, res) => {
     });
   }
 });
-
+// Find users by ID
 router.get("/id/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -37,7 +37,7 @@ router.get("/id/:id", async (req, res) => {
     });
   }
 });
-
+// Create new user
 router.post("/", async (req, res) => {
   try {
     const body = req.body;
@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
     });
   }
 });
-
+// Modify one User
 router.put("/",authenticate, async (req, res) => { 
   try {
     const cuerpoDeDatos = req.body;
@@ -60,7 +60,7 @@ router.put("/",authenticate, async (req, res) => {
     });
   }
 });
-
+// Delete Users
 router.delete("/:id", admin, async (req, res) => { 
   try {
     const id = req.params.id;
