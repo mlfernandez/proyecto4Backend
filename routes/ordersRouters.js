@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const orderController = require('../controllers/ordersController');
 const authenticate = require('../middleware/authenticate');
+const admin = require('../middleware/admin')
 
-//API CRUD PASAJERO
+//API CRUD ORDES
 
-router.get('/', authenticate, async (req, res) => {
+router.get('/', admin, async (req, res) => {
     try{
         res.json(await orderController.allOrders());
     }catch (err) {
@@ -43,7 +44,7 @@ router.put('/', authenticate, async (req, res) => {
         });
     }
 });
-router.delete('/:id', authenticate, async (req, res) => {
+router.delete('/:id', admin, async (req, res) => {
     try {
         const id = req.params.id;
         res.json(await orderController.deleteOrder(id));
