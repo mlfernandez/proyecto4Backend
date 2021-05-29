@@ -463,6 +463,9 @@ module.exports = loginController;
 >Postman is a collaboration platform for API development. Postman's features simplify each step of building an API and streamline collaboration so you can create better APIs—faster.
 
 **Example of endpoints on Postman**
+<details>
+<summary>Click to see the endpoints on Postman. </summary>
+
 
 ![Captura](img/imgPostmanAllOrders.JPG)
 
@@ -487,6 +490,8 @@ module.exports = loginController;
 ![Captura](img/imgPostmanNewUser.JPG)
 
 ![Captura](img/imgPostmanOrderById.JPG)
+
+</details>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/042f2c63c893845e50f1?action=collection%2Fimport)
 
