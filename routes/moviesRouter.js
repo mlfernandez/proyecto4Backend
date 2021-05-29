@@ -48,4 +48,15 @@ router.get("/genre/:nombre", async (req, res) => {
   }
 });
 
+router.get("/actor/:personId", async (req, res) => {
+  try {
+    let personId = req.params.personId;
+    res.json(await moviesController.searchByPerson(personId));
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
+});
+
 module.exports = router;
