@@ -33,7 +33,7 @@ class Person {
         birthday: cuerpoDeDatos.birthday
       },
       //donde
-      { where: { id: cuerpoDeDatos.id } }
+      { where: { id: cuerpoDeDatos.idUser } }
     );
   }
   async deleteUser(id) {
