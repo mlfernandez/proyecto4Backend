@@ -54,7 +54,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       isAdmin: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
@@ -63,7 +64,22 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      isSuscriptionActive: {
+        type: Sequelize.BOOLEAN
+      },
+      creditCardNumber: {
+        type: Sequelize.DOUBLE
+      },
+      creditCardName: {
+        type: Sequelize.STRING
+      },
+      creditCardExpDate: {
+        type: Sequelize.DATE
+      },
+      creditCardSecureCodeNumber: {
+        type: Sequelize.INTEGER
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

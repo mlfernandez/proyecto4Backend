@@ -29,7 +29,15 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.INTEGER,
     birthday: DataTypes.DATE,
     dni: DataTypes.STRING,
-    isAdmin: DataTypes.BOOLEAN
+    isAdmin: DataTypes.BOOLEAN,
+    isSuscriptionActive: DataTypes.BOOLEAN,
+    creditCardNumber: DataTypes.INTEGER,
+    creditCardName: DataTypes.STRING,
+    creditCardExpDate: DataTypes.DATE,
+    creditCardSecureCodeNumber: DataTypes.INTEGER,
+
+
+
   }, {
     sequelize,
     modelName: 'User',

@@ -3,7 +3,7 @@ const moviesController = require("../controllers/moviesController");
 
 //CRUD
 
-// http://localhost:3000/movies/
+// http://localhost:3005/movies/
 
 router.get("/", async (req, res) => {
   try {
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     });
   }
 });
-// http://localhost:3000/movies/id
+// http://localhost:3005/movies/id
 router.get("/:id", async (req, res) => {
   try {
     let id = req.params.id;
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
-// http://localhost:3000/movies/search/gladiator
+// http://localhost:3005/movies/search/gladiator
 router.get("/search/:query", async (req, res) => {
   try {
     let query = req.params.query;
@@ -36,7 +36,7 @@ router.get("/search/:query", async (req, res) => {
     });
   }
 });
-// http://localhost:3000/movies/genre/''genre"
+// http://localhost:3005/movies/genre/''genre"
 router.get("/genre/:nombre", async (req, res) => {
   try {
     let nombre = req.params.nombre;

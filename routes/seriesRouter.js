@@ -2,7 +2,7 @@ const router = require("express").Router();
 const seriesController = require("../controllers/seriesController");
 
 // get
-// http://localhost:3000/series
+// http://localhost:3005/series
 
 router.get("/", async (req, res) => {
   try {

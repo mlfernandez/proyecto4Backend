@@ -20,6 +20,12 @@ module.exports = {
       idMovie: {
         type: Sequelize.INTEGER
       },
+      titleMovie: {
+        type: Sequelize.STRING
+      },
+      posterMovie: {
+        type: Sequelize.STRING
+      },
       rentalDate: {
         type: Sequelize.DATE
       },
