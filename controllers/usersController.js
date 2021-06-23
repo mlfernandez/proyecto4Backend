@@ -16,12 +16,12 @@ class Person {
       return User.findByPk(id);
 
   }
-  async newUser(body) {
+/*   async newUser(body) {
     let password = body.password;
     let passwordHashed = bcryptjs.hashSync(password, 10);
     body.password = passwordHashed;
     return User.create(body);
-  }
+  } */
   async modifyUser(cuerpoDeDatos) {
     return User.update(
       //datos que cambiamos
@@ -41,8 +41,8 @@ class Person {
     return User.destroy({ where: { id: id } });
   }
 
-  async createUser(user) {
-    user.password = await bcrypt.hash(user.password, 10);
+  async newUser(user) {
+    user.password = await bcryptjs.hash(user.password, 10);
 
     //Creamos una token que enviamos por mail para activar
     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -50,22 +50,24 @@ class Person {
     for (let i = 0; i < 25; i++) {
         token += characters[Math.floor(Math.random() * characters.length )];
     }
-    
+    console.log(token)
     user = {
       name : user.name,
-      lastName1: user.lastName1,
-      lastName2: user.lastName2,
+      last_name1: user.last_name1,
+      last_name2: user.last_name2,
       email: user.email,
       password: user.password,
       birthday: user.birthday,
-      address: user.address,
+      shipping_address: user.shipping_address,
       country: user.country,
       city: user.city,
+      zipCode: user.zipCode,
       dni: user.dni,
-      telephone: user.telephone,
-      subscription: user.subscription,
+      phone: user.phone,
       token: token
     }
+
+    console.log(user)
 
     let usuario = await User.create(user);
 
@@ -82,17 +84,18 @@ class Person {
 
  //Función que recibe token de email y activa la cuenta del usuario.
  async updateActive(token) {
-    let user = await userController.findByToken(token);
-    let usuario = await User.findByIdAndUpdate(
-    { _id: user._id },
-    //Datos que cambiamos
-    {
-      isActive: true,
-    },
-    { new: true, omitUndefined: true }
+   console.log(token);
+  let user = await User.findOne({where:{token}});
+  console.log(user);
+  let usuario = await User.update(
+      {
+          isActive: true,
+        },
+        {where: {id: user.id}}
   );
-  let resultado = "La cuenta se ha activado correctamente. Por favor, ve a la web de xSmileFitness para entrar en tu área de usuario.";
+  let resultado = "La cuenta se ha activado correctamente. Por favor, ve a la web de Smile para ingresar.";
   return resultado;
+
 }
 
 

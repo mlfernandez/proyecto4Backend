@@ -8,19 +8,28 @@ class LoginController {
     async validate(emailCheck,passwordCheck){
 
         let user = await userController.findByEmail(emailCheck);
-
+console.log(user)
+        if (user == null) {
+            throw new Error("El password o el email son incorrectos Usuario Null.");
+          }
         let password = user.password;
 
         let verificar = await bcryptjs.compare(passwordCheck,password);
 
+        if (!user.isActive) {
+            throw new Error("La cuenta no está activa. Por favor, revisa tu correo electrónico y activa tu cuenta.");
+          }
+
         if(!verificar){
-            return new Error("El password o el email no coinciden");
+            throw new Error("El password o el email no coinciden");
             
         }
 
+  
+
         let payload = {
             userId : user.id,
-            createdAt: new Date,
+            createdAt: new Date(),
             isAdmin: user.isAdmin
         };
 

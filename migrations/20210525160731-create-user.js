@@ -35,7 +35,7 @@ module.exports = {
       shipping_address: {
         type: Sequelize.STRING
       },
-      billing_address: {
+      zipCode: {
         type: Sequelize.STRING
       },
       email: {
@@ -65,20 +65,33 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      isSuscriptionActive: {
-        type: Sequelize.BOOLEAN
+      isActive: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
-      creditCardNumber: {
-        type: Sequelize.DOUBLE
+      isSuscriptionActive: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
+      },
+/*       creditCardNumber: {
+        type: Sequelize.DOUBLE,
+        allowNull: true,
       },
       creditCardName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       creditCardExpDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: true,
       },
       creditCardSecureCodeNumber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      }, */
+      token: {
+        type: Sequelize.STRING,
+        defaultValue: ""
       },
     });
   },

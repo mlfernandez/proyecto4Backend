@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 
 const user = "smilemoviesite@gmail.com";
-const pass = "x123456asdf*";
+const pass = "123456asdf*";
 
 const transport = nodemailer.createTransport({
   service: "Gmail",
@@ -21,7 +21,7 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
         <h2>Hola ${name}</h2>
         <p>Gracias por registrarte en Smile.  
         Por favor, confirma tu email haciendo click en el siguiente enlace.</p>
-        <a href=http://localhost:3005/user/confirm/${confirmationCode}> Activar cuenta.</a>
+        <a href=http://localhost:3005/users/confirm/${confirmationCode}> Activar cuenta.</a>
         </div>`,
   }).catch(err => console.log(err));
 };
