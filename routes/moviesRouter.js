@@ -14,21 +14,36 @@ router.get("/", async (req, res) => {
     });
   }
 });
-// http://localhost:3005/movies/id
-router.get("/:id", async (req, res) => {
+
+
+// http://localhost:3005/movies/soon
+
+router.get("/soon", async (req, res) => {
   try {
-    let id = req.params.id;
-    res.json(await moviesController.searchById(id));
+    res.json(await moviesController.findComingSoon());
   } catch (err) {
     return res.status(500).json({
       mensaje: err.mensaje,
     });
   }
 });
-// http://localhost:3005/movies/search/gladiator
-router.get("/search/:query", async (req, res) => {
+
+
+// http://localhost:3005/movies/id
+router.post("/id", async (req, res) => {
   try {
-    let query = req.params.query;
+    let query = req.body.query;
+    res.json(await moviesController.searchById(query));
+  } catch (err) {
+    return res.status(500).json({
+      mensaje: err.mensaje,
+    });
+  }
+});
+// http://localhost:3005/movies/search
+router.post("/search", async (req, res) => {
+  try {
+    let query = req.body.query;
     res.json(await moviesController.searchByTitle(query));
   } catch (err) {
     return res.status(500).json({
@@ -36,11 +51,14 @@ router.get("/search/:query", async (req, res) => {
     });
   }
 });
+
+
+
 // http://localhost:3005/movies/genre/''genre"
-router.get("/genre/:nombre", async (req, res) => {
+router.post("/genre", async (req, res) => {
   try {
-    let nombre = req.params.nombre;
-    res.json(await moviesController.searchByGenre(nombre));
+    let query = req.body.query;
+    res.json(await moviesController.searchByGenre(query));
   } catch (err) {
     return res.status(500).json({
       message: err.message,
