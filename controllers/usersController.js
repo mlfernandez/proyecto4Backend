@@ -16,27 +16,28 @@ class Person {
       return User.findByPk(id);
 
   }
-/*   async newUser(body) {
-    let password = body.password;
-    let passwordHashed = bcryptjs.hashSync(password, 10);
-    body.password = passwordHashed;
-    return User.create(body);
-  } */
+
+
   async modifyUser(cuerpoDeDatos) {
-    return User.update(
+    await User.update(
       //datos que cambiamos
       {
-        billing_address: cuerpoDeDatos.billing_address,
         shipping_address: cuerpoDeDatos.shipping_address,
         phone: cuerpoDeDatos.phone,
         city: cuerpoDeDatos.city,
         country: cuerpoDeDatos.country,
-        birthday: cuerpoDeDatos.birthday
+        zipCode: cuerpoDeDatos.zipCode
       },
       //donde
       { where: { id: cuerpoDeDatos.idUser } }
-    );
+   
+    )
+
+    let resultado = this.findByUserId(cuerpoDeDatos.idUser);
+
+    return resultado;
   }
+
   async deleteUser(id) {
     return User.destroy({ where: { id: id } });
   }

@@ -50,9 +50,9 @@ router.post("/", async (req, res) => {
   }
 });
 // Modify one User
-router.put("/",authenticate, async (req, res) => { 
+router.post("/update", async (req, res) => { 
   try {
-    const cuerpoDeDatos = req.body;
+    const cuerpoDeDanpm starttos = req.body;
     res.json(await usersController.modifyUser(cuerpoDeDatos));
   } catch (err) {
     return res.status(500).json({
