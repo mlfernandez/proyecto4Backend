@@ -38,7 +38,7 @@ router.post('/orderuserid', authenticate, async (req, res) => {
     }
 })
 // Create orders
-router.post('/', authenticate, async (req, res) => {
+router.post('/', async (req, res) => {
     try{
         const body = req.body;
         res.json(await orderController.newOrder(body));
