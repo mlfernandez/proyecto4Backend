@@ -19,14 +19,18 @@ class Person {
 
 
   async modifyUser(cuerpoDeDatos) {
+    console.log(cuerpoDeDatos)
     await User.update(
+
       //datos que cambiamos
       {
-        shipping_address: cuerpoDeDatos.shipping_address,
-        phone: cuerpoDeDatos.phone,
-        city: cuerpoDeDatos.city,
-        country: cuerpoDeDatos.country,
-        zipCode: cuerpoDeDatos.zipCode
+
+        creditCardNumber: cuerpoDeDatos.creditCardNumber,
+        creditCardName: cuerpoDeDatos.creditCardName,
+        creditCardExpDate: cuerpoDeDatos.creditCardExpDate,
+        creditCardSecureCodeNumber: cuerpoDeDatos.creditCardSecureCodeNumber,
+
+
       },
       //donde
       { where: { id: cuerpoDeDatos.idUser } }
@@ -59,12 +63,16 @@ class Person {
       email: user.email,
       password: user.password,
       birthday: user.birthday,
-      shipping_address: user.shipping_address,
+      /* shipping_address: user.shipping_address,
       country: user.country,
       city: user.city,
-      zipCode: user.zipCode,
+      zipCode: user.zipCode, */
       dni: user.dni,
-      phone: user.phone,
+      creditCardNumber: user.creditCardNumber,
+      creditCardName: user.creditCardName,
+      creditCardExpDate: user.creditCardExpDate,
+      creditCardSecureCodeNumber: user.creditCardSecureCodeNumber,
+      /* phone: user.phone, */
       token: token
     }
 

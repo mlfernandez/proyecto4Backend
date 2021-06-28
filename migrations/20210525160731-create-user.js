@@ -8,25 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      // orderId:{
-      //   type: Sequelize.INTEGER,
-      //   references: {
-      //     model: 'Orders',
-      //     key: 'id',
-      //   },
-      //   onUpdate: 'CASCADE',
-      //   onDelete: 'CASCADE',
-      // },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       last_name1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       last_name2: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
-      country: {
+     /*  country: {
         type: Sequelize.STRING
       },
       city: {
@@ -37,33 +31,29 @@ module.exports = {
       },
       zipCode: {
         type: Sequelize.STRING
-      },
+      }, */
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
-      phone: {
+      /* phone: {
         type: Sequelize.INTEGER
-      },
+      }, */
       birthday: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
       },
       dni: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       isAdmin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       },
       isActive: {
         type: Sequelize.BOOLEAN,
@@ -73,25 +63,33 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true
       },
-/*       creditCardNumber: {
+      creditCardNumber: {
         type: Sequelize.DOUBLE,
-        allowNull: true,
+        
       },
       creditCardName: {
         type: Sequelize.STRING,
-        allowNull: true,
+        
       },
       creditCardExpDate: {
         type: Sequelize.DATE,
-        allowNull: true,
+        
       },
       creditCardSecureCodeNumber: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      }, */
+        type: Sequelize.DOUBLE,
+        
+      },
       token: {
         type: Sequelize.STRING,
         defaultValue: ""
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
     });
   },

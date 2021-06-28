@@ -20,22 +20,22 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     last_name1: DataTypes.STRING,
     last_name2: DataTypes.STRING,
-    country: DataTypes.STRING,
+    /* country: DataTypes.STRING,
     city: DataTypes.STRING,
     shipping_address: DataTypes.STRING,
-    zipCode: DataTypes.STRING,
+    zipCode: DataTypes.STRING, */
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    phone: DataTypes.INTEGER,
+    /* phone: DataTypes.INTEGER, */
     birthday: DataTypes.DATE,
     dni: DataTypes.STRING,
     isActive: DataTypes.BOOLEAN,
     isAdmin: DataTypes.BOOLEAN,
     isSuscriptionActive: DataTypes.BOOLEAN,
-/*     creditCardNumber: DataTypes.INTEGER,
+    creditCardNumber: DataTypes.DOUBLE,
     creditCardName: DataTypes.STRING,
     creditCardExpDate: DataTypes.DATE,
-    creditCardSecureCodeNumber: DataTypes.INTEGER, */
+    creditCardSecureCodeNumber: DataTypes.DOUBLE,
     token: DataTypes.STRING
 
 

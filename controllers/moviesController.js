@@ -6,6 +6,19 @@ class Peliculas {
   // metodos de funciones controladoras
 
 
+  async playTrailer(movieId){
+    let res = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=210d6a5dd3f16419ce349c9f1b200d6d&language=en-US`)
+    let urlTrailer = "https://www.youtube.com/watch?v=" + res.data.results[0].key;
+    console.log(res.data.results[0].key);
+    console.log(urlTrailer);
+
+      return urlTrailer;
+      }
+
+  async searchByActor(query){
+    let res = await axios.get(`http://api.themoviedb.org/3/search/person?query=${query}&api_key=210d6a5dd3f16419ce349c9f1b200d6d`);
+    return res.data;
+    }
 
   async findComingSoon() {
     let res = await axios.get(

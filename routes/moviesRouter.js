@@ -3,6 +3,11 @@ const moviesController = require("../controllers/moviesController");
 
 //CRUD
 
+
+
+
+
+
 // http://localhost:3005/movies/
 
 router.get("/", async (req, res) => {
@@ -40,6 +45,33 @@ router.post("/id", async (req, res) => {
     });
   }
 });
+
+// http://localhost:3005/movies/actor
+router.post('/actor', async (req, res)=> {
+  try {  
+      let query = req.body.query;
+      res.json(await moviesController.searchByActor(query));
+  } catch (err) {
+      return res.status(500).json({
+          message: err.message
+      });
+  }
+});
+
+// http://localhost:3005/movies/play
+
+router.post("/play", async (req, res) => {
+  try {
+    let movieId = req.body.movieId;
+    res.json(await moviesController.playTrailer(movieId));
+  } catch (err) {
+    return res.status(500).json({
+      mensaje: err.mensaje,
+    });
+  }
+});
+
+
 // http://localhost:3005/movies/search
 router.post("/search", async (req, res) => {
   try {

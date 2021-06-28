@@ -27,7 +27,7 @@ router.get('/:id', authenticate, async (req, res) => {
     }
 })
 // View orders the same user
-router.post('/orderuserid', authenticate, async (req, res) => {
+router.post('/orderuserid', async (req, res) => {
     try{
         const idUser = req.body.idUser;
         res.json(await orderController.userOrder(idUser));
