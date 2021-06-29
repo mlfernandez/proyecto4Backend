@@ -70,4 +70,27 @@ router.delete('/:id', admin, async (req, res) => {
         });
     }
 });
+
+router.get("/active", async (req, res) => {
+    try {
+      res.json(await orderController.findAllOrdersActive());
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
+  });
+
+  //POST - Find rooms of one user
+router.post("/userid", async (req, res) => {
+    try {
+      const idUser = req.body.idUser;
+      res.json(await orderController.findMyOrdersActive(idUser));
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
+  });
+
 module.exports = router;

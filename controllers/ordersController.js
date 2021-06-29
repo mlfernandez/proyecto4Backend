@@ -32,6 +32,19 @@ class Pedido {
   async deleteOrder(id) {
     return Order.destroy({ where: { id: id } });
   }
+
+  async findAllOrdersActive() {
+    return Order.findAll({ isActive: "true" });
+  }
+
+  //Encuentra las clases que tiene un usuario
+  async findMyOrdersActive(idUser) {
+    return Order.findAll(
+      { where: {idUser : idUser, isActive: true}}
+      )
+      ;
+  }
+
 }
 let orderController = new Pedido();
 module.exports = orderController;

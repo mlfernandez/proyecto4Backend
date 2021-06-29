@@ -11,8 +11,8 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      idMvie: {
-        type: Sequelize.INTEGER
+      idMovie: {
+        type: Sequelize.INTEGER,
       },
       poster_path: {
         type: Sequelize.STRING

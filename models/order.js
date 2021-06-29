@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Order.belongsTo(models.User, { foreignKey: "idUser" });
+      Order.belongsTo(models.Movie, { foreignKey: "idMovie" });
+      
     }
+    
+    
   }
   Order.init(
     {
@@ -20,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       posterMovie: DataTypes.STRING,
       rentalDate: DataTypes.DATE,
       returnDate: DataTypes.DATE,
+      isActive: DataTypes.BOOLEAN
     },
     {
       sequelize,

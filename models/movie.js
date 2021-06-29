@@ -11,17 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
- 
-    }
+      Movie.hasMany(models.Order,{
+        foreignKey:'idMovie'});
   };
+
+}
   Movie.init({
     title: DataTypes.STRING,
     idMovie: DataTypes.INTEGER,
     poster_path: DataTypes.STRING,
     genre: DataTypes.STRING
-  }, {
+  }, 
+  {
     sequelize,
     modelName: 'Movie',
-  });
+  }
+  );
   return Movie;
 };
