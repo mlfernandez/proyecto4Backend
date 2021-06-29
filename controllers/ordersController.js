@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Order } = require("../models");
 const router = require("../routes/ordersRouters");
 
@@ -37,10 +38,13 @@ class Pedido {
     return Order.findAll({ isActive: "true" });
   }
 
-  //Encuentra las clases que tiene un usuario
+  //Encuentra las peliculas que esta viendo un usuario
   async findMyOrdersActive(idUser) {
     return Order.findAll(
-      { where: {idUser : idUser, isActive: true}}
+      
+      { where: {idUser : idUser, isActive: true, returnDate : {[Op.gt] : new Date()}}, },
+      
+      
       )
       ;
   }
