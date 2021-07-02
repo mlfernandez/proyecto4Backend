@@ -1,6 +1,8 @@
+const moment = require("moment");
 const { Op } = require("sequelize");
 const { Order } = require("../models");
 const router = require("../routes/ordersRouters");
+
 
 class Pedido {
 
@@ -16,7 +18,15 @@ class Pedido {
     });
   }
   async newOrder(body) {
-    return Order.create(body);
+
+    let res = await Order.findAll({ where: {idUser : body.idUser, idMovie: body.idMovie}, },)
+    console.log(res)
+    if (res[0]) {
+      throw new Error ("Ya tienes la pelicula en tu")
+    } else {
+      return Order.create(body);
+    }
+    
   }
   async modifyOrder(cuerpoDeDatos) {
 
@@ -34,9 +44,9 @@ class Pedido {
     return Order.destroy({ where: { id: id } });
   }
 
-  async findAllOrdersActive() {
+/*   async findAllOrdersActive() {
     return Order.findAll({ isActive: "true" });
-  }
+  } */
 
   //Encuentra las peliculas que esta viendo un usuario
   async findMyOrdersActive(idUser) {
@@ -48,7 +58,26 @@ class Pedido {
       )
       ;
   }
+  
+  async findAllOrdersActive() {
+    return Order.findAll(
+      
+      { where: {returnDate : {[Op.gt] : new Date()}}, },
+      
+      
+      )
+      ;
+  }
 
+  async findAllOrdersNoActive() {
+    return Order.findAll(
+      
+      { where: {returnDate : {[Op.lt] : moment()}}, },
+      
+      
+      )
+      ;
+  }
 }
 let orderController = new Pedido();
 module.exports = orderController;

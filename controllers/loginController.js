@@ -8,7 +8,7 @@ class LoginController {
     async validate(emailCheck,passwordCheck){
 
         let user = await userController.findByEmail(emailCheck);
-console.log(user)
+
         if (user == null) {
             throw new Error("El password o el email son incorrectos Usuario Null.");
           }

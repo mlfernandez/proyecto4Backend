@@ -57,9 +57,9 @@ class Peliculas {
 
   async searchByGenre(query) {  // query = nombre del genero
     // checkId(nombre,traductorGenero)
-    let code = checkId(query.toLowerCase());
+   /*  let code = checkId(query.toLowerCase()); */
     let res = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&with_genres=${code}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=210d6a5dd3f16419ce349c9f1b200d6d&with_genres=${query}`
     );
     return res.data;
   }
@@ -71,6 +71,8 @@ class Peliculas {
     return res.data;
   }
 }
+
+
 
 let moviesController = new Peliculas();
 module.exports = moviesController;

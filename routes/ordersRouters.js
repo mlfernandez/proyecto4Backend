@@ -71,9 +71,29 @@ router.delete('/:id', admin, async (req, res) => {
     }
 });
 
-router.get("/active", async (req, res) => {
+/* router.get("/active", async (req, res) => {
     try {
       res.json(await orderController.findAllOrdersActive());
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
+  }); */
+
+  router.post("/active", async (req, res) => {
+    try {
+      res.json(await orderController.findAllOrdersActive());
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
+  });
+
+  router.post("/noactive", async (req, res) => {
+    try {
+      res.json(await orderController.findAllOrdersNoActive());
     } catch (err) {
       return res.status(500).json({
         message: err.message,

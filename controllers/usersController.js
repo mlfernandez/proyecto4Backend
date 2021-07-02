@@ -2,6 +2,7 @@ const { User } = require("../models");
 const router = require("../routes/usersRouter");
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('../config/nodemailerConfig.js');
+const moment = require("moment");
 
 class Person {
   async findAllUsers() {
@@ -12,11 +13,40 @@ class Person {
       where: { email },
     });
   }
+
+  async findByDni(dni) {
+    return User.findOne({
+      where: { dni },
+    });
+  }
+  
     async findByUserId(id) {
       return User.findByPk(id);
 
   }
 
+ 
+
+  // para cambiar la suscripcion 
+  async updateSuscription(body) {
+
+  await User.update(
+    
+      //Datos que cambiamos
+    {
+      lastSuscriptionBegin: body.lastSuscriptionBegin,
+      lastSuscriptionEnd: body.lastSuscriptionEnd,
+    },
+    { where: { id: body.idUser } }
+  )
+
+    let resultado = this.findAll(body.idUser);
+    console.log(resultado, "controller")
+
+    return resultado;
+    
+
+}
 
   async modifyUser(cuerpoDeDatos) {
     console.log(cuerpoDeDatos)
@@ -56,6 +86,10 @@ class Person {
         token += characters[Math.floor(Math.random() * characters.length )];
     }
     console.log(token)
+
+    let lastSuscriptionBegin = Date.now();
+    let lastSuscriptionEnd = moment(lastSuscriptionBegin).add(1, 'year');
+
     user = {
       name : user.name,
       last_name1: user.last_name1,
@@ -72,6 +106,8 @@ class Person {
       creditCardName: user.creditCardName,
       creditCardExpDate: user.creditCardExpDate,
       creditCardSecureCodeNumber: user.creditCardSecureCodeNumber,
+      lastSuscriptionBegin: lastSuscriptionBegin,
+      lastSuscriptionEnd: lastSuscriptionEnd,
       /* phone: user.phone, */
       token: token
     }

@@ -60,7 +60,7 @@
     },
     {
       id: 878,
-      name: "science fiction",
+      name: "scienionce fict",
     },
     {
       id: 10770,

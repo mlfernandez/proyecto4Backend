@@ -59,10 +59,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      isSuscriptionActive: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
-      },
+
       creditCardNumber: {
         type: Sequelize.DOUBLE,
         
@@ -83,6 +80,16 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: ""
       },
+
+      lastSuscriptionBegin: {
+        type: Sequelize.DATE,
+       
+      },
+
+      lastSuscriptionEnd: {
+        type: Sequelize.DATE,
+        
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -91,6 +98,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+
+
     });
   },
   down: async (queryInterface, Sequelize) => {
