@@ -9,8 +9,8 @@ class Pedido {
   async allOrders() {
     return Order.findAll();
   }
-  async orderId(id) {
-    return Order.findByPk(id);
+  async orderId(idOrder) {
+    return Order.findByPk(idOrder);
   }
   async userOrder(idUser) {
     return Order.findAll({
@@ -22,7 +22,7 @@ class Pedido {
     let res = await Order.findAll({ where: {idUser : body.idUser, idMovie: body.idMovie}, },)
     console.log(res)
     if (res[0]) {
-      throw new Error ("Ya tienes la pelicula en tu")
+      throw new Error ("Ya tienes la pelicula guardada para ver.")
     } else {
       return Order.create(body);
     }

@@ -33,10 +33,10 @@ module.exports = (sequelize, DataTypes) => {
     dni: DataTypes.STRING,
     isActive: DataTypes.BOOLEAN,
     isAdmin: DataTypes.BOOLEAN,
-    creditCardNumber: DataTypes.DOUBLE,
+    creditCardNumber: DataTypes.STRING,
     creditCardName: DataTypes.STRING,
     creditCardExpDate: DataTypes.DATE,
-    creditCardSecureCodeNumber: DataTypes.DOUBLE,
+    creditCardSecureCodeNumber: DataTypes.STRING,
     lastSuscriptionBegin: DataTypes.DATE,
     lastSuscriptionEnd: DataTypes.DATE,
     token: DataTypes.STRING

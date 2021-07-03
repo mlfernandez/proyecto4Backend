@@ -61,7 +61,7 @@ module.exports = {
       },
 
       creditCardNumber: {
-        type: Sequelize.DOUBLE,
+        type: Sequelize.STRING,
         
       },
       creditCardName: {
@@ -73,7 +73,7 @@ module.exports = {
         
       },
       creditCardSecureCodeNumber: {
-        type: Sequelize.DOUBLE,
+        type: Sequelize.STRING,
         
       },
       token: {

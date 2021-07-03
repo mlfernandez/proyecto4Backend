@@ -16,10 +16,10 @@ router.get('/', admin, async (req, res) => {
     }
 })
 // View orders by ID
-router.get('/:id', authenticate, async (req, res) => {
+router.post('/id', async (req, res) => {
     try{
-        const id = req.params.id;
-        res.json(await orderController.orderId(id));
+        const idOrder = req.body.idOrder;
+        res.json(await orderController.orderId(idOrder));
     }catch (err) {
         return res.status(500).json({
             message: err.message

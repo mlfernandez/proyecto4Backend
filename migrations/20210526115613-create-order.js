@@ -26,6 +26,9 @@ module.exports = {
       posterMovie: {
         type: Sequelize.STRING
       },
+      trailer: {
+        type: Sequelize.STRING
+      },
       rentalDate: {
         type: Sequelize.DATE
       },

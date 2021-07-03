@@ -20,8 +20,8 @@ class Person {
     });
   }
   
-    async findByUserId(id) {
-      return User.findByPk(id);
+    async findByUserId(data) {
+      return User.findByPk(data);
 
   }
 
@@ -30,7 +30,7 @@ class Person {
   // para cambiar la suscripcion 
   async updateSuscription(body) {
 
-  await User.update(
+   User.update(
     
       //Datos que cambiamos
     {
@@ -40,7 +40,7 @@ class Person {
     { where: { id: body.idUser } }
   )
 
-    let resultado = this.findAll(body.idUser);
+    let resultado = User.findByPk(body.idUser);
     console.log(resultado, "controller")
 
     return resultado;
@@ -78,6 +78,9 @@ class Person {
 
   async newUser(user) {
     user.password = await bcryptjs.hash(user.password, 10);
+    user.creditCardSecureCodeNumber = await bcryptjs.hash(user.creditCardSecureCodeNumber, 5);
+    user.creditCardNumber = await bcryptjs.hash(user.creditCardNumber, 5);
+    
 
     //Creamos una token que enviamos por mail para activar
     const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
