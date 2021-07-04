@@ -55,10 +55,14 @@ class Person {
       //datos que cambiamos
       {
 
-        creditCardNumber: cuerpoDeDatos.creditCardNumber,
+        /* creditCardNumber: cuerpoDeDatos.creditCardNumber, */
+        creditCardNumber: await bcryptjs.hash(cuerpoDeDatos.creditCardSecureCodeNumber, 5),
         creditCardName: cuerpoDeDatos.creditCardName,
         creditCardExpDate: cuerpoDeDatos.creditCardExpDate,
-        creditCardSecureCodeNumber: cuerpoDeDatos.creditCardSecureCodeNumber,
+        creditCardSecureCodeNumber: await bcryptjs.hash(cuerpoDeDatos.creditCardSecureCodeNumber, 5),
+      /*   creditCardSecureCodeNumber: cuerpoDeDatos.creditCardSecureCodeNumber, */
+
+        
 
 
       },
