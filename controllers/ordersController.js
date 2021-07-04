@@ -19,7 +19,7 @@ class Pedido {
   }
   async newOrder(body) {
 
-    let res = await Order.findAll({ where: {idUser : body.idUser, idMovie: body.idMovie}, },)
+    let res = await Order.findAll({ where: {idUser : body.idUser, idMovie: body.idMovie, returnDate : {[Op.gt] : new Date()} }, },)
     console.log(res)
     if (res[0]) {
       throw new Error ("Ya tienes la pelicula guardada para ver.")
