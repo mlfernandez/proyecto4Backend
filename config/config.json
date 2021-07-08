@@ -1,12 +1,14 @@
 {
+
   "development": {
-    "username": "ba5c6507337f64",
-    "password": "8756c64b",
-    "database": "heroku_08f89bc0608fc91",
-    "host": "us-cdbr-east-04.cleardb.com",
-    "port": "3306",
+    "username": "root",
+    "password": "87654321",
+    "database": "x",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
+  
+
   "test": {
     "username": "root",
     "password": null,
